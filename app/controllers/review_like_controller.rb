@@ -1,0 +1,2 @@
+class ReviewLikeController < ApplicationController
+end

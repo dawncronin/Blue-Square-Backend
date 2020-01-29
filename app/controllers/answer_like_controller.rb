@@ -1,0 +1,2 @@
+class AnswerLikeController < ApplicationController
+end
