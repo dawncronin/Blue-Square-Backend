@@ -1,2 +1,0 @@
-class SavedResortController < ApplicationController
-end
