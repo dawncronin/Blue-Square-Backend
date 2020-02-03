@@ -13,7 +13,7 @@ class AuthController < ApplicationController
   
     def show
       if logged_in?
-        render json: { id: current_user.id, username: current_user.username }
+        render json: { user:UserSerializer.new(current_user) }
       else
         render json: {error: "please login"}, status: 401
       end

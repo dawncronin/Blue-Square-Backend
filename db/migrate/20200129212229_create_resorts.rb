@@ -10,11 +10,12 @@ class CreateResorts < ActiveRecord::Migration[6.0]
       t.float :lat
       t.string :zipcode
       t.string :region
+      t.string :state
       t.date :open_date
       t.date :close_date
       t.integer :snowfall
       t.integer :vertical
-      t.integer :summet
+      t.integer :summit
       t.integer :acres
       t.integer :runs
       t.integer :lifts
@@ -22,7 +23,7 @@ class CreateResorts < ActiveRecord::Migration[6.0]
       t.integer :blue
       t.integer :black
       t.integer :double_black
-      t.boolean :terrain_parks
+      t.integer :terrain_parks
       t.boolean :epic
       t.boolean :ikon
       t.boolean :begineer
