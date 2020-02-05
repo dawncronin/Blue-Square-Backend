@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :review_likes
   resources :saved_resort
 
+  get '/reviews/resort/:id', to: "reviews#index_resort"
   post '/login', to: 'auth#create'
   get '/current_user', to: 'auth#show'
 

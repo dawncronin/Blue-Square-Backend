@@ -8,7 +8,10 @@ class ResortsController < ApplicationController
     end
 
     def show
-        resort = Resort.find(params[:id])
+        name = params[:id].split("_")
+        name = name.map {|word| word.capitalize}
+        name = name.join(" ")
+        resort = Resort.find_by(name: name)
         render json: ResortSerializer.new(resort)
     end
 end
