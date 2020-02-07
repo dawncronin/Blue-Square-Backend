@@ -1,4 +1,5 @@
 class SavedResortSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :save_type
+  belongs_to :user
 end

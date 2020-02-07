@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   resources :answers
   resources :answer_likes
   resources :review_likes
-  resources :saved_resort
+  resources :saved_resorts
 
   get '/reviews/resort/:id', to: "reviews#index_resort"
+  get '/saved_resorts/user/:id', to: "saved_resorts#index_user"
+
   post '/login', to: 'auth#create'
   get '/current_user', to: 'auth#show'
 

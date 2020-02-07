@@ -18,8 +18,10 @@ class ReviewsController < ApplicationController
         if review.valid?
             options = {}
             options[:include] = [:user]
-            reviews = Review.where("resort_id = #{review.resort_id}")
+            reviews = Review.where(resort_id: review.resort_id)
             render json: ReviewSerializer.new(reviews, options)
+        else
+        render json: {data: "INVALID REVIEW"}
         end
     end
   

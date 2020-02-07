@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_215136) do
   create_table "saved_resorts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "resort_id", null: false
-    t.string "type"
+    t.string "save_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["resort_id"], name: "index_saved_resorts_on_resort_id"
