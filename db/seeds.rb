@@ -60,7 +60,7 @@ File.open("/Users/flatironschool/BlueSquare/BlueSquareBackend/BlueSquareAPI/Reso
         open_date = Date.strptime(resort[10],"%m/%d/%Y")
         close_date =  Date.strptime(resort[11],"%m/%d/%Y")
          
-        resorts << {
+        hashed_resort = {
             name: resort[0],
             link: resort[1],
             short_desc: resort[2],
@@ -88,13 +88,18 @@ File.open("/Users/flatironschool/BlueSquare/BlueSquareBackend/BlueSquareAPI/Reso
             ikon: ikon,
             begineer: begineer
         }
+
+        r =  Resort.create(hashed_resort)
+        Photo.create({photo_url: resort[26], resort_id: r.id})
     end
 
     count += 1
 end
 
 resorts.each do |resort|
-    Resort.create(resort)
+   
+    
 end
 
 
+# Photo.create(photo_url: resort[26], resort_id:)
