@@ -21,7 +21,9 @@ class SavedResortsController < ApplicationController
             options = {}
             options[:include] = [:saved_resorts]
             resort = Resort.find(saved_resort.resort_id)
-            render json: ResortSerializer.new(resort, options)
+            photo = resort.photo
+            saved_resorts = resort.saved_resorts
+            render json: {resort: ResortSerializer.new(resort), saved_resorts: SavedResortSerializer.new(saved_resorts), photo: PhotoSerializer.new(photo)}
         end
     end
 

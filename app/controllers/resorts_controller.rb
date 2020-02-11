@@ -9,16 +9,15 @@ class ResortsController < ApplicationController
 
     def show
         options = {}
-        name = params[:id].split("-")
-        name = name.map {|word| word.capitalize}
+        name = params[:id].split("_")
+        # name = name.map {|word| word.capitalize}
         name = name.join(" ")
         resort = Resort.find_by(name: name)
-        byebug
-        photos = resort.photos
-        if !photos
-            photos= []
+        photo = resort.photo
+        if !photo
+            photo= []
         end
         saved_resorts = resort.saved_resorts
-        render json: {resort: ResortSerializer.new(resort), saved_resorts: SavedResortSerializer.new(saved_resorts), photos: PhotoSerializer.new(photos)}
+        render json: {resort: ResortSerializer.new(resort), saved_resorts: SavedResortSerializer.new(saved_resorts), photo: PhotoSerializer.new(photo)}
     end
 end
