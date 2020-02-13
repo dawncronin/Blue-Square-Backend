@@ -28,9 +28,14 @@ class SavedResortsController < ApplicationController
     end
 
     def destroy
-        review = Review.find(params[:id])
-        review.destroy
-        render json: {review: "saved resort deleted!"}
+        saved_resort = SavedResort.find(params[:id])
+        saved_resort.destroy
+        options = {}
+        options[:include] = [:saved_resorts]
+        resort = Resort.find(saved_resort.resort_id)
+        photo = resort.photo
+        saved_resorts = resort.saved_resorts
+        render json: {resort: ResortSerializer.new(resort), saved_resorts: SavedResortSerializer.new(saved_resorts), photo: PhotoSerializer.new(photo)}
     end
   
     private

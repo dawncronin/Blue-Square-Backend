@@ -21,7 +21,10 @@ class ReviewsController < ApplicationController
             reviews = Review.where(resort_id: review.resort_id)
             render json: ReviewSerializer.new(reviews, options)
         else
-        render json: {data: "INVALID REVIEW"}
+        options = {}
+        options[:include] = [:user]
+        reviews = Review.where(resort_id: review.resort_id)
+        render json: {error: "INVALID REVIEW", data: ReviewSerializer.new(reviews, options)}
         end
     end
   

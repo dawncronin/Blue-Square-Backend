@@ -7,4 +7,7 @@ class User < ApplicationRecord
     has_many :answer_likes
 
     has_secure_password
+
+    validates :username, presence: true, uniqueness: true, length: {in: 2..30}
+    validates :password, presence: true, length: {in: 2..30}
 end
