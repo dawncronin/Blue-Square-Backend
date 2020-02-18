@@ -38,7 +38,7 @@ resorts = []
 
 count = 0
 
-File.open("/Users/flatironschool/BlueSquare/BlueSquareBackend/BlueSquareAPI/Resorts.csv").each_line do |line|
+File.open("#{RAILS_ROOT}/Resorts.csv").each_line do |line|
     if count != 0 
         resort = line.split(/\t/)
         if resort[23] == "TRUE"
