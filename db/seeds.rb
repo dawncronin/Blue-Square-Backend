@@ -38,7 +38,7 @@ resorts = []
 
 count = 0
 
-File.open("#{RAILS_ROOT}/Resorts.csv").each_line do |line|
+File.open("#{Rails.root}/Resorts.csv").each_line do |line|
     if count != 0 
         resort = line.split(/\t/)
         if resort[23] == "TRUE"
