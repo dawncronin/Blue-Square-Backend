@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_215136) do
     t.integer "terrain_parks"
     t.boolean "epic"
     t.boolean "ikon"
-    t.boolean "begineer"
+    t.boolean "beginner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

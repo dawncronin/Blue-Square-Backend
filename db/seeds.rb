@@ -25,7 +25,7 @@
 #     terrain_parks: true,
 #     epic: true,
 #     ikon: false,
-#     begineer: true 
+#     beginner: true 
 # })
 
 # Review.create({ user_id: 1, resort_id: 1, rating: 5, text: "I love kirkwood!"
@@ -52,9 +52,9 @@ File.open("#{Rails.root}/Resorts.csv").each_line do |line|
             ikon = false
         end
         if resort[25] == "TRUE\r\n" || resort[25] == "TRUE"
-            begineer = true
+            beginner = true
         else 
-            begineer = false
+            beginner = false
         end
 
         open_date = Date.strptime(resort[10],"%m/%d/%Y")
@@ -86,7 +86,7 @@ File.open("#{Rails.root}/Resorts.csv").each_line do |line|
             terrain_parks: resort[22].to_i,
             epic: epic,
             ikon: ikon,
-            begineer: begineer
+            beginner: beginner
         }
 
         r =  Resort.create(hashed_resort)

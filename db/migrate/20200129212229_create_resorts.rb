@@ -26,7 +26,7 @@ class CreateResorts < ActiveRecord::Migration[6.0]
       t.integer :terrain_parks
       t.boolean :epic
       t.boolean :ikon
-      t.boolean :begineer
+      t.boolean :beginner
       t.timestamps
     end
   end

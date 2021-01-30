@@ -23,25 +23,25 @@ default: &default
 
 development:
   <<: *default
-  database: BlueSquare_development
+  database: bluesquare
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: BlueSquare
+  username: postgres
 
   # The password associated with the postgres role (username).
-  #password:
+  password: taco
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  #host: localhost
+  host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  #port: 5432
+  port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -58,6 +58,8 @@ development:
 test:
   <<: *default
   database: BlueSquare_test
+  username: postgres
+  password: taco
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +82,29 @@ test:
 #
 production:
   <<: *default
-  database: BlueSquare_production
-  username: BlueSquare
-  password: <%= ENV['BLUESQUARE_DATABASE_PASSWORD'] %>
+  database: bluesquare_prod
+  username: postgres
+  password: taco
+  # password: <%= ENV['BLUESQUARE_DATABASE_PASSWORD'] %>
+
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   host: localhost
+# development:
+#   <<: \\*default
+#   database: postgres
+#   username: postgres
+#   password: taco
+# test:
+#   <<: \\*default
+#   database: postgres
+#   username: postgres
+#   password: taco
+# production:
+#   <<: \\*default
+#   database: postgres
+
+#   username: postgres
+#   password: <%= ENV['WINDOWS_BASH_TEST_APPLICATION_DATABASE_PASSWORD'] %>

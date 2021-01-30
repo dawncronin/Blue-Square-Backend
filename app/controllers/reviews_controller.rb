@@ -6,7 +6,13 @@ class ReviewsController < ApplicationController
         options = {}
         options[:include] = [:user]
         name = params[:id].split("_")
-        name = name.map {|word| word.capitalize}
+        name = name.map do |word| 
+            if word != 'at'
+                word.capitalize
+            else 
+                word
+            end
+        end
         name = name.join(" ")
         resort = Resort.find_by(name: name)
         reviews = Review.where("resort_id = #{resort.id}")
