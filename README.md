@@ -4,7 +4,7 @@ Blue Square is a full-stack react and rails application for browsing and reviewi
 ## Heroku Hosting
 For the full experience, the entire application is hosted with Heroku. It may take a minute for both the api and front-end to load, so please allow a minute for the page to render. On the resort page, there will be a scroll with many resorts when fully loaded.
 
-http://blue-square-client.herokuapp.com/
+https://blue-square-client.herokuapp.com/
 
 ## Front-End
 The front-end was created with 'create-react-app'. From there, I included react-router to simplify the navigation through the site.
